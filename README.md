@@ -74,7 +74,44 @@ Projeto-Integrador-III/
 
 ---
 
+Antes de executar o projeto, verifique se as seguintes ferramentas estão instaladas:
+
+* Node.js (versão específica recomendada para o projeto)
+* npm
+* Git
+
+## Versão do Node.js
+
+Este projeto depende de uma versão específica do Node.js para funcionar corretamente.
+
+### Versão recomendada
+
+```bash
+Node.js >= 20.x
+```
+
+Para verificar sua versão instalada:
+
+```bash
+node -v
+```
+
+Caso esteja utilizando uma versão diferente, atualize o Node.js:
+
+* Windows / macOS: baixar pelo site oficial do entity["company","Node.js","Open-source JavaScript runtime"]
+* Linux: utilizar o gerenciador de pacotes da distribuição ou o nvm
+
+## Utilizando NVM (recomendado)
+
+Com o NVM instalado:
+
+```bash
+nvm install 20
+nvm use 20
+```
+
 ## 🚀 Como Executar o Projeto
+
 
 ### 🔧 Backend (Django)
 
