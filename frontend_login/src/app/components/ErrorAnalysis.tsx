@@ -70,26 +70,26 @@ export function ErrorAnalysis() {
         </div>
 
         <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-4">
-          <Card className="border border-gray-200 bg-white p-6">
+          <Card className="border border-gray-200 bg-white p-6 h-full flex flex-col justify-between">
             <p className="mb-1 text-sm text-gray-600">Total de relatos</p>
             <p className="text-2xl font-semibold text-gray-900">{errorFeedbacks.length}</p>
           </Card>
-          <Card className="border border-gray-200 bg-white p-6">
+          <Card className="border border-gray-200 bg-white p-6 h-full flex flex-col justify-between">
             <p className="mb-1 text-sm text-gray-600">Abertos</p>
             <p className="text-2xl font-semibold text-red-600">{openCount}</p>
           </Card>
-          <Card className="border border-gray-200 bg-white p-6">
+          <Card className="border border-gray-200 bg-white p-6 h-full flex flex-col justify-between">
             <p className="mb-1 text-sm text-gray-600">Em andamento</p>
             <p className="text-2xl font-semibold text-orange-600">{progressCount}</p>
           </Card>
-          <Card className="border border-gray-200 bg-white p-6">
+          <Card className="border border-gray-200 bg-white p-6 h-full flex flex-col justify-between">
             <p className="mb-1 text-sm text-gray-600">Resolvidos</p>
             <p className="text-2xl font-semibold text-green-600">{resolvedCount}</p>
           </Card>
         </div>
 
         <Card className="mb-6 border border-gray-200 bg-white p-6">
-          <div className="flex flex-col gap-4 md:flex-row">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
               <Input
@@ -135,35 +135,29 @@ export function ErrorAnalysis() {
             </Card>
           ) : (
             groupedErrors.map(({ project, feedbacks: projectFeedbacks }) => (
-              <div key={project.id}>
-                <div className="rounded-t-xl border border-b-0 border-gray-200 bg-white p-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <FolderOpen className="h-5 w-5 text-blue-600" />
-                      <div>
-                        <h2 className="font-semibold text-gray-900">{project.name}</h2>
-                        <p className="text-sm text-gray-600">{project.description}</p>
-                      </div>
+              <Card key={project.id} className="overflow-hidden border border-gray-200 bg-white">
+                <div className="flex flex-col gap-4 border-b border-gray-200 bg-slate-50 p-6 md:flex-row md:items-center md:justify-between">
+                  <div className="flex items-center gap-3">
+                    <FolderOpen className="h-5 w-5 text-blue-600" />
+                    <div>
+                      <h2 className="font-semibold text-gray-900">{project.name}</h2>
+                      <p className="text-sm text-gray-600">{project.description}</p>
                     </div>
-                    <Link to={`/dashboard/project/${project.id}`}>
-                      <Button variant="outline" size="sm">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Ver projeto
-                      </Button>
-                    </Link>
                   </div>
+                  <Link to={`/dashboard/project/${project.id}`}>
+                    <Button variant="outline" size="sm">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Ver projeto
+                    </Button>
+                  </Link>
                 </div>
 
-                {projectFeedbacks.map((feedback, index) => (
-                  <Card
-                    key={feedback.id}
-                    className={`border border-gray-200 bg-white p-6 ${
-                      index === projectFeedbacks.length - 1
-                        ? 'rounded-b-xl'
-                        : 'rounded-b-none border-b-0'
-                    }`}
-                  >
-                    <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                <div className="divide-y divide-gray-200">
+                  {projectFeedbacks.map((feedback) => (
+                    <div
+                      key={feedback.id}
+                      className="flex flex-col gap-4 p-6 lg:flex-row lg:items-start lg:justify-between"
+                    >
                       <div className="flex-1">
                         <div className="mb-2 flex flex-wrap items-center gap-2">
                           <Badge variant="destructive">Erro</Badge>
@@ -180,9 +174,9 @@ export function ErrorAnalysis() {
                         <span>{feedback.updatedAt.toLocaleDateString('pt-BR')}</span>
                       </div>
                     </div>
-                  </Card>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </Card>
             ))
           )}
         </div>

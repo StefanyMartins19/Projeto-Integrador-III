@@ -179,3 +179,67 @@
     line-height: 1.5;
   }
 }
+
+.dark body {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+.dark header,
+.dark aside,
+.dark main,
+.dark [class*='bg-white'],
+.dark [class*='bg-gray-50'],
+.dark [class*='bg-gray-100'],
+.dark [class*='bg-blue-50'],
+.dark [class*='bg-indigo-100'],
+.dark [class*='bg-red-50'],
+.dark [class*='bg-green-50'],
+.dark [class*='bg-yellow-50'] {
+  background-color: #111827 !important;
+  color: #e5e7eb !important;
+}
+
+.dark [class*='text-gray-900'],
+.dark [class*='text-gray-800'],
+.dark [class*='text-gray-700'],
+.dark [class*='text-gray-600'],
+.dark [class*='text-gray-500'],
+.dark [class*='text-blue-600'],
+.dark [class*='text-red-700'],
+.dark [class*='text-green-700'] {
+  color: #e5e7eb !important;
+}
+
+.dark [class*='border-gray-200'],
+.dark [class*='border-gray-300'],
+.dark [class*='border-blue-600'],
+.dark [class*='border-red-200'] {
+  border-color: #374151 !important;
+}
+
+.dark [class*='bg-blue-600'],
+.dark [class*='bg-blue-700'],
+.dark [class*='bg-indigo-600'] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.dark [class*='hover:bg-blue-700']:hover,
+.dark [class*='hover:bg-blue-800']:hover {
+  background-color: #1d4ed8 !important;
+}
+
+.dark input,
+.dark textarea,
+.dark select,
+.dark [role='combobox'] {
+  background-color: #0f172a !important;
+  border-color: #475569 !important;
+  color: #f8fafc !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8 !important;
+}
